@@ -12,7 +12,7 @@ A GitHub Action to capture stdout and stderr of a command and save them to log f
 
 ```yaml
 - name: Record logs for a command
-  uses: ./record-logs-action
+  uses: ./logs-actions
   with:
     command: "echo 'Hello, World!'"
     stdout_path: "./logs/stdout.log"
