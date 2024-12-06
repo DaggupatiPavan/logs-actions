@@ -16,6 +16,9 @@ inputs:
 runs:
   using: "docker"
   image: "alpine:latest"
-  entrypoint: 
-    - "/bin/sh"
-    - "/entrypoint.sh"
+  entrypoint: "/bin/sh"
+  args:
+    - "-c"
+    - |
+      chmod +x /entrypoint.sh
+      /entrypoint.sh "${{ inputs.command }}" "${{ inputs.stdout_path }}" "${{ inputs.stderr_path }}"
