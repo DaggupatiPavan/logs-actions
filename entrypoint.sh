@@ -3,9 +3,9 @@
 set -e
 
 # Read inputs
-COMMAND=$1
-STDOUT_PATH=$2
-STDERR_PATH=$3
+COMMAND="$1"
+STDOUT_PATH="$2"
+STDERR_PATH="$3"
 
 # Create directories if they don't exist
 mkdir -p "$(dirname "$STDOUT_PATH")"
