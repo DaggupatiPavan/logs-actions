@@ -20,5 +20,6 @@ runs:
   args:
     - "-c"
     - |
+      cp $GITHUB_WORKSPACE/entrypoint.sh /entrypoint.sh
       chmod +x /entrypoint.sh
       /entrypoint.sh "${{ inputs.command }}" "${{ inputs.stdout_path }}" "${{ inputs.stderr_path }}"
