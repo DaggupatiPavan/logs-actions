@@ -1,0 +1,38 @@
+
+### 2. Use the Action in Your Workflow
+
+#### Example Workflow
+```yaml
+name: CI Pipeline with Logs
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Create Log Directory
+        run: mkdir -p logs
+
+      - name: Capture Logs for Maven Build
+        uses: ./record-logs-action
+        with:
+          command: "mvn clean package"
+          stdout_path: "./logs/maven_stdout.log"
+          stderr_path: "./logs/maven_stderr.log"
+
+      - name: Capture Logs for Docker Build
+        uses: ./record-logs-action
+        with:
+          command: "docker build -t my-app:latest ."
+          stdout_path: "./logs/docker_build_stdout.log"
+          stderr_path: "./logs/docker_build_stderr.log"
+
+      - name: Upload Logs
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-logs
+          path: ./logs/
