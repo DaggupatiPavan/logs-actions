@@ -14,7 +14,7 @@ jobs:
         run: mkdir -p logs
 
       - name: Capture Logs for Maven Build
-        uses: ./record-logs-action
+        uses: ./logs-actions
         with:
           command: "mvn clean package"
           stdout_path: "./logs/maven_stdout.log"
