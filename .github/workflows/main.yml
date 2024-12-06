@@ -14,14 +14,14 @@ jobs:
         run: mkdir -p logs
 
       - name: Capture Logs for Maven Build
-        uses: DaggupatiPavan/logs-actions@v3
+        uses: DaggupatiPavan/logs-actions@v5
         with:
           command: "mvn clean package"
           stdout_path: "./logs/maven_stdout.log"
           stderr_path: "./logs/maven_stderr.log"
 
       - name: Capture Logs for Docker Build
-        uses: DaggupatiPavan/logs-actions@v3
+        uses: DaggupatiPavan/logs-actions@v5
         with:
           command: "docker build -t my-app:latest ."
           stdout_path: "./logs/docker_build_stdout.log"
