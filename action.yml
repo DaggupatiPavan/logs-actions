@@ -1,0 +1,19 @@
+name: "Record Logs"
+description: "Capture stdout and stderr for a command and save them to logs."
+author: "Your Name"
+
+inputs:
+  command:
+    description: "The command to execute."
+    required: true
+  stdout_path:
+    description: "Path to save the stdout log."
+    required: true
+  stderr_path:
+    description: "Path to save the stderr log."
+    required: true
+
+runs:
+  using: "docker"
+  image: "alpine:latest"
+  entrypoint: ["/bin/sh", "/entrypoint.sh"]
