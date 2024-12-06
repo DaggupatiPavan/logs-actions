@@ -1,9 +1,5 @@
 
-### 2. Use the Action in Your Workflow
-
-#### Example Workflow
-```yaml
-name: CI Pipeline with Logs
+name: logs
 on:
   workflow_dispatch:
 
